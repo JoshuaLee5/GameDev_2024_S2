@@ -42,7 +42,8 @@ namespace Player
         {
             if (GetComponent<Rigidbody>())
             {
-                GetComponent<Rigidbody>().freezeRotation = true;
+                //GetComponent<Rigidbody>().freezeRotation = true;
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             }
             if (GetComponent<Camera>())
             {

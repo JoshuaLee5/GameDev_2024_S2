@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PLAYER
+  - Damage
+  - Respawn Point
+  - Safe Zone
+  - Normal Zone
   layers:
   - Default
   - TransparentFX
