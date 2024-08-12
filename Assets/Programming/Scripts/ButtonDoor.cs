@@ -46,7 +46,7 @@ public class ButtonDoor : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //Press button
-                _buttonAnim.SetTrigger("Press");
+                _buttonAnim.SetTrigger("Pressed");
                 //Set door to open
                 _doorAnim.SetBool("Open", true);
                 //timer get set to max time
