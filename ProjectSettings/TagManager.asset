@@ -9,6 +9,9 @@ TagManager:
   - Respawn Point
   - Safe Zone
   - Normal Zone
+  - Door
+  - Button
+  - Heal
   layers:
   - Default
   - TransparentFX
