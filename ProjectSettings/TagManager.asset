@@ -12,6 +12,7 @@ TagManager:
   - Door
   - Button
   - Heal
+  - Enemy
   layers:
   - Default
   - TransparentFX
