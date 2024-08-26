@@ -1,69 +1,9 @@
 fileFormatVersion: 2
-guid: d552ad5f79ebb6c4aa8a16a92c210a38
+guid: c00a06792322ae84c9f2625f9317b7f4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ch50_body
-    second: {fileID: 2100000, guid: 8bc7516e3caca464abc07d16aae3c487, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ch50_body1
-    second: {fileID: 2100000, guid: 5b4f31777dbd50f4cb0d75bd1a972c32, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1001_Diffuse
-    second: {fileID: 2800000, guid: 87ff071c7cb2e244994b46b0d1b6bb9c, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1001_Emissive
-    second: {fileID: 2800000, guid: 46f0b54eca9fc0849a25acba8a9f64d0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1001_Glossiness
-    second: {fileID: 2800000, guid: 467e302effd8b5040974b3343a3fd5f2, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1001_Normal
-    second: {fileID: 2800000, guid: 25cb82ef5c9b83e4ea1071d2f2f57673, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1001_Specular
-    second: {fileID: 2800000, guid: 0756eb298a0822b4d9db8295dce23d44, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1002_Diffuse
-    second: {fileID: 2800000, guid: 85190f2209643404ea3a51e3c90bf111, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1002_Emissive
-    second: {fileID: 2800000, guid: 00ac401198e7d2a49aeec1c59424cdfc, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1002_Glossiness
-    second: {fileID: 2800000, guid: 0d2c2138e9a18e843b418db35f1d3d5d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1002_Normal
-    second: {fileID: 2800000, guid: 740cd30459da7f04cb242d361e2ac8d1, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch50_1002_Specular
-    second: {fileID: 2800000, guid: e14456a2175064548ab4b9f25035d4d9, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -151,7 +91,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: mixamorig1:Hips
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -159,7 +99,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

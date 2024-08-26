@@ -13,6 +13,7 @@ TagManager:
   - Button
   - Heal
   - Enemy
+  - RayDoor
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interact
   - 
   - 
   - 
