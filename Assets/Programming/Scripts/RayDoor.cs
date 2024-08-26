@@ -25,6 +25,6 @@ public class RayDoor : MonoBehaviour
     public void Interaction()
     {
         isOpen = !isOpen;
-        animator.SetBool = true;
+        animator.SetBool("Open", isOpen);
     }
 }
