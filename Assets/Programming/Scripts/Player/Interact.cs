@@ -20,11 +20,11 @@ namespace Player
         public bool showToolTip = false;
         public string action, button, instruction;
 
-        void Start () 
-        { 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        //void Start () 
+        //{ 
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.visible = false;
+        //}
         private void Update()
         {
 
@@ -43,6 +43,7 @@ namespace Player
                 if (Input.GetKeyDown(KeyCode.E))
                 {
 
+                    showToolTip = true;
                     if (hitInfo.collider.CompareTag("RayDoor"))
                     {
                         //do thing
@@ -52,6 +53,57 @@ namespace Player
                         }
                         //i want you to open
                     }
+                    #region Long code
+                    //if (hitInfo.collider.CompareTag("NPC"))
+                    //{
+                    //    if (hitInfo.collider.GetComponent<IMGUILG>())
+                    //    {
+                    //        hitInfo.collider.GetComponent<IMGUILG>().OnInteraction();
+                    //    } 
+                    //}
+                    //if (hitInfo.collider.CompareTag("Chest"))
+                    //{ 
+
+                    //}
+
+                    //if (hitInfo.collider.CompareTag("Item"))
+                    //{
+
+                    //}
+
+                    //if (hitInfo.collider.CompareTag("Pet"))
+                    //{
+
+                    //}
+
+                    //if (hitInfo.collider.CompareTag("Bed"))
+                    //{
+
+                    //}
+
+                    //if (hitInfo.collider.CompareTag("Campfire"))
+                    //{
+
+                    //}
+
+                    //if (hitInfo.collider.CompareTag("CraftingStation"))
+                    //{
+
+                    //}
+                    #endregion
+
+                    #region Short Code
+                    if (hitInfo.collider.TryGetComponent<IInteractable>(out IInteractable interact))
+                    { 
+                        //if (hitInfo.collider.GetComponent<RayDoor>))
+                        //{
+                        //    hitInfo.collider.GetComponent<RayDoor>().Interaction();
+                        //}
+
+                        interact.Interaction();
+                    }
+
+                    #endregion
                 }
 
 
@@ -64,18 +116,18 @@ namespace Player
 
             void OnGUI()
             {
-                //for (int x = 0; x < 16; x++)
-                //{
-                //    for (int y = 0; y < 9; y++)
-                //    {
-                //        GUI.Box(new Rect(x,y,1,1), "");
-                //        GUI.Label(new Rect(x,y,1,1), x+":"+y);
+                for (int x = 0; x < 16; x++)
+                {
+                    for (int y = 0; y < 9; y++)
+                    {
+                        GUI.Box(new Rect(x, y, 1, 1), "");
+                        GUI.Label(new Rect(x, y, 1, 1), x + ":" + y);
 
-                //        //x*Screen.width/16, y * Screen.height / 9, Screen.width / 16, Screen.height / 9
-                //        //x* Screen.width / 16, y* Screen.height / 9, Screen.width / 16, Screen.height / 9
-                //    }
+                        //x*Screen.width/16, y * Screen.height / 9, Screen.width / 16, Screen.height / 9
+                        //x* Screen.width / 16, y* Screen.height / 9, Screen.width / 16, Screen.height / 9
+                    }
 
-                //}
+                }
 
 
                 //GUI.Box(new Rect(7.5f * Screen.width / 16, 4 * Screen.height / 9, 0.5f * (Screen.width / 16), 0.5f * (Screen.height)), "");

@@ -14,6 +14,14 @@ TagManager:
   - Heal
   - Enemy
   - RayDoor
+  - NPC
+  - Chest
+  - Item
+  - Pet
+  - Bed
+  - Campfire
+  - CraftingStation
+  - NPC 2
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,8 @@ namespace Player
         }
         private void Update() 
         {
-            if (true)
+            //ture
+            if (GameManager.Instance.gameState == GameManager.GameState.Playing)
             {
                 //speed change
                 //_movementSpeed, walk, run, crouch, jump
