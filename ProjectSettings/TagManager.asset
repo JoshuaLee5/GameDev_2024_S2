@@ -22,6 +22,7 @@ TagManager:
   - Campfire
   - CraftingStation
   - NPC 2
+  - Steve
   layers:
   - Default
   - TransparentFX

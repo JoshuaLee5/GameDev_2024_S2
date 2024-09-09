@@ -1,0 +1,18 @@
+Dialogue
+
+Contain lines [5] array
+use buttons to iterate i++
+display Next for all but last index
+display Bye for last index
+
+Somewhere between the 2nd and 3rd []
+Ask the player a question
+Mark that index
+Display 2 buttons Yes and No
+Yes = i++
+No = Last line of dialogue
+
+https://www.youtube.com/watch?v=6vmRwLYWNRo
+https://www.youtube.com/watch?v=raQ3iHhE_Kk
+https://www.youtube.com/watch?v=cHUXh5biQMg&list=PLX2vGYjWbI0ROSj_B0_eir_VkHrEkd4pi
+https://www.youtube.com/watch?v=aPXvoWVabPY

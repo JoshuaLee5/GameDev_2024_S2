@@ -52,7 +52,7 @@ namespace Player
         }
         private void Update () 
         {
-            if (true)
+            if (GameManager.Instance.gameState == GameManager.GameState.Playing)
             {
                 #region Horizontal Mouse Movement
                 if (_axis == RotationalAxis.MouseMovementX)
