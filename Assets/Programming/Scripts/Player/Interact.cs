@@ -44,6 +44,15 @@ namespace Player
                 {
 
                     showToolTip = true;
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     if (hitInfo.collider.CompareTag("RayDoor"))
                     {
                         //do thing

@@ -10,6 +10,7 @@ namespace Player
         #region Variables
         //the direction we are moving
         [SerializeField] Vector3 _moveDirection;
+        Vector2 newInput;
         //the reference to the CharacterController
         [SerializeField] CharacterController _characterController;
         //walk, crouch, sprint, jump, gravity
@@ -66,21 +67,49 @@ namespace Player
                     //check of we are on the ground so we can move coz thats how people work
                     if (_characterController.isGrounded)
                     {
-                        //what is our direction? set the move direction based off Inputs
-                        _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                        if (KeyBindsManager.keys.Count <= 0)
+                        {
+                            
+                            //what is our direction? set the move direction based off Inputs
+                            _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                        }
+                        else
+                        { 
+                            newInput.x = Input.GetKey(KeyBindsManager.keys["Left"])? 1: newInput.x = Input.GetKey(KeyBindsManager.keys["Right"]) ? -1 : 0;
+                            newInput.y = Input.GetKey(KeyBindsManager.keys["Forward"]) ? -1 : newInput.y = Input.GetKey(KeyBindsManager.keys["Backwards"]) ? 1 : 0;
+                            _movementSpeed = Input.GetKey(KeyBindsManager.keys["Sprint"])? _run: _movementSpeed = Input.GetKey(KeyBindsManager.keys["Crouch"])? _crouch: _walk;
+                            _moveDirection = new Vector3(newInput.x, 0, newInput.y);
+                        }
+                        
+                        
+
                         //make sure that the direction forward is according to the players forward and not the world north
                         _moveDirection = transform.TransformDirection(_moveDirection);
                         //apply speed to the movement Direction
                         _moveDirection *= _movementSpeed;
 
                         //_moveDirection = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * _movementSpeed);
-                        
-                        //if we jump
-                        if (Input.GetButton("Jump"))
+
+                        if (KeyBindsManager.keys.Count <= 0)
                         {
-                            //move up
-                            _moveDirection.y = _jump;
+                            //if we jump
+                            if (Input.GetButton("Jump"))
+                            {
+                                //move up
+                                _moveDirection.y = _jump;
+                            }
                         }
+                        else 
+                        {
+                            if (Input.GetKey(KeyBindsManager.keys["Jump"]))
+                            {
+                                //move up
+                                _moveDirection.y = _jump;
+                            }
+                        }
+                        
+                        
+
                     }
                     //apply gravity ti direction.
                     _moveDirection.y -= _gravity * Time.deltaTime;
