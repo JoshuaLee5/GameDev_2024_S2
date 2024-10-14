@@ -14,21 +14,22 @@ namespace TurnBased
         public GameObject playerPrefab;
         public Transform playerBattleStation;
         public Unit playerUnit;
-        public BattleHUB playerHUB;
+        public BattleHUD playerHUD;
         [Header("Enemy")]
         public GameObject enemyPrefab;
         public Transform enemyBattleStation;
         public Unit enemyUnit;
-        public BattleHUB enemyHUB;
+        public BattleHUD enemyHUD;
 
         public Text dialogueText;
-        public BattleState battlestate;
+        public BattleState battleState;
 
         private void Start()
         {
-            battlestate = BattleState.StartBattle;
+            battleState = BattleState.StartBattle;
             StartCoroutine(SetupBattle());
-            //playerHUB.S
+            playerHUD.SetHUD(playerUnit);
+            enemyHUD.SetHUD(enemyUnit);
         }
 
         void PlayerTurn()
@@ -37,7 +38,7 @@ namespace TurnBased
         }
         public void OnAttack()
         {
-            if (battlestate != BattleState.PlayerTurn)
+            if (battleState != BattleState.PlayerTurn)
             {
                 return;
             }
@@ -45,7 +46,7 @@ namespace TurnBased
         }
         public void OnHeal()
         {
-            if (battlestate != BattleState.PlayerTurn)
+            if (battleState != BattleState.PlayerTurn)
             {
                 return;
             }
@@ -53,13 +54,13 @@ namespace TurnBased
         }
         void EndBattle()
         {
-            if (battlestate == BattleState.Win)
+            if (battleState == BattleState.Win)
             {
-                dialogueText.text = $"You Won the battle by defeating {enemyUnit.unitDescription} {enemyUnit.name}";
+                dialogueText.text = $"You Won the battle by defeating {enemyUnit.unitDescription} {enemyUnit.unitName}";
             }
-            else if (battlestate == BattleState.Lose)
+            else if (battleState == BattleState.Lose)
             {
-                dialogueText.text = $"You Lost the battle and were defeated by {enemyUnit.unitDescription} {enemyUnit.name}";
+                dialogueText.text = $"You Lost the battle and were defeated by {enemyUnit.unitDescription} {enemyUnit.unitName}";
             }
 
         }
@@ -71,24 +72,26 @@ namespace TurnBased
             playerUnit = player.GetComponent<Unit>();
             GameObject enemy = Instantiate(enemyPrefab, enemyBattleStation);
             enemyUnit = enemy.GetComponent<Unit>();
-            dialogueText.text = $"{enemyUnit.unitDescription} {enemyUnit.name} {enemyUnit.unitAction}...";
+            dialogueText.text = $"{enemyUnit.unitDescription} {enemyUnit.unitName} {enemyUnit.unitAction}...";
 
             yield return new WaitForSeconds(2);
+            battleState = BattleState.PlayerTurn;
+            PlayerTurn();
         }
         IEnumerator PlayerAttack()
         {
             bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-            enemyHUB.SetHealth(enemyUnit);
-            dialogueText.text = $"{playerUnit.name} attacked {enemyUnit.name}";
+            enemyHUD.SetHealth(enemyUnit);
+            dialogueText.text = $"{playerUnit.unitName} attacked {enemyUnit.unitName}";
             yield return new WaitForSeconds(2);
             if (isDead)
             {
-                battlestate = BattleState.Win;
+                battleState = BattleState.Win;
                 EndBattle();
             }
             else
             {
-                battlestate = BattleState.EnemyTurn;
+                battleState = BattleState.EnemyTurn;
                 StartCoroutine(EnemyTurn());
 
             }
@@ -96,28 +99,28 @@ namespace TurnBased
         IEnumerator PlayerHeal()
         {
             playerUnit.Heal(2);
-            playerHUB.SetHealth(playerUnit);
-            dialogueText.text = $"{playerUnit.name} feel stronger!";
+            playerHUD.SetHealth(playerUnit);
+            dialogueText.text = $"{playerUnit.unitName} feel stronger!";
             yield return new WaitForSeconds(2);
-            battlestate = BattleState.EnemyTurn;
+            battleState = BattleState.EnemyTurn;
             StartCoroutine(EnemyTurn());
         }
         IEnumerator EnemyTurn()
         {
-            dialogueText.text = $"{enemyUnit.name} Attacks!!!";
+            dialogueText.text = $"{enemyUnit.unitName} Attacks!!!";
             yield return new WaitForSeconds(1);
 
             bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-            playerHUB.SetHealth(playerUnit);
+            playerHUD.SetHealth(playerUnit);
             yield return new WaitForSeconds(1);
             if (isDead)
             {
-                battlestate = BattleState.Lose;
+                battleState = BattleState.Lose;
                 EndBattle();
             }
             else
             {
-                battlestate = BattleState.PlayerTurn;
+                battleState = BattleState.PlayerTurn;
                 PlayerTurn();
             }
         }

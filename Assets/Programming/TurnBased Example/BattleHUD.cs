@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 namespace TurnBased
 {
-    public class BattleHUB : MonoBehaviour
+    public class BattleHUD : MonoBehaviour
     {
         public Text nameText;
         public Text levelText;
         public Image healthBar;
         public Image icon;
-
-        public void SetHUB(Unit unit)
-        { 
-            nameText.text = unit.name;
+        public void SetHUD(Unit unit)
+        {
+            nameText.text = unit.unitName;
             levelText.text = $"level: {unit.unitLevel}";
             icon.sprite = unit.unitIcon;
             SetHealth(unit);
@@ -25,5 +24,4 @@ namespace TurnBased
             healthBar.fillAmount = Mathf.Clamp01(unit.currentHealth / unit.maxHealth);
         }
     }
-
 }

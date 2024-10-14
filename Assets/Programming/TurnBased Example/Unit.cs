@@ -17,17 +17,18 @@ namespace TurnBased
 
         //when running TakeDamage pass a damage value in for calculations
         public bool TakeDamage(int damage)
-        { 
+        {
+            //current health is affected by damage amount
             currentHealth -= damage;
-            //if that kill us
+            //if that kills us
             if (currentHealth <= 0)
             {
-                //say that kill us
+                //say that kills us
                 return true;
             }
             else
             {
-                //else say it didn't kill us
+                //else say it didnt kill us
                 return false;
             }
         }
@@ -40,5 +41,5 @@ namespace TurnBased
             }
         }
     }
-    
+
 }
