@@ -105,6 +105,14 @@ namespace TurnBased
             battleState = BattleState.EnemyTurn;
             StartCoroutine(EnemyTurn());
         }
+        IEnumerator PlayerTaunt()
+        {
+            dialogueText.text = $"{playerUnit.unitName} Uses Taunt";
+            yield return new WaitForSeconds(2);
+            battleState = BattleState.EnemyTurn;
+            StartCoroutine(EnemyTurn());
+        }
+
         IEnumerator EnemyTurn()
         {
             dialogueText.text = $"{enemyUnit.unitName} Attacks!!!";
